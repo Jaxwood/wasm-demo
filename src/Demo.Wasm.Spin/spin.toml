@@ -1,5 +1,5 @@
 spin_version = "1"
-authors = ["Jacob Lorenzen jacob.lorenzen@velux.com"]
+authors = ["Jacob Lorenzen jacob@lorenzen.me"]
 description = "Basic Spin application with .NET 7"
 name = "spin-with-dotnet-7"
 trigger = { type = "http", base = "/" }
