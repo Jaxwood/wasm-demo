@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wasm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wasm
+  template:
+    metadata:
+      labels:
+        app: wasm
+    spec:
+      runtimeClassName: wasmtime-spin-v1
+      containers:
+      - name: spin-with-dotnet-7
+        image: jaxwood/wasm.demo:latest
+        command: ["/"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spin-with-dotnet-7
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: wasm
+  type: ClusterIP

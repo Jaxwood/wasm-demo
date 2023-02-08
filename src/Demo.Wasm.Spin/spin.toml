@@ -1,0 +1,13 @@
+spin_version = "1"
+authors = ["Jacob Lorenzen jacob.lorenzen@velux.com"]
+description = "Basic Spin application with .NET 7"
+name = "spin-with-dotnet-7"
+trigger = { type = "http", base = "/" }
+version = "1.0.0"
+
+[[component]]
+id = "demo-wasm-spin"
+source = "./bin/Release/net7.0/Demo.Wasm.Spin.wasm"
+[component.trigger]
+route = "/..."
+executor = { type = "wagi" }
